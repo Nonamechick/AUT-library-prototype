@@ -67,30 +67,32 @@
   <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
       // Initialize EmailJS
-    emailjs.init("LcqhfN4O0vM04D5jx"); // Replace with your EmailJS user ID
+      (function(){
+            emailjs.init("LcqhfN4O0vM04D5jx"); // Replace with your EmailJS user ID
+        })();
 
-    document.getElementById('registrationForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-    
-    const username = document.getElementById('username').value; // Fixed the field ID reference
-    const email = document.getElementById('email').value;
-    const telegram = document.getElementById('telegram').value;
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const telegram = document.getElementById('telegram').value;
 
-    // Send the email using EmailJS
-    emailjs.send("service_5erkwmi", "template_9m9kuwe", {
-        username: username,
-        email: email,
-        telegram: telegram
-    })
-    .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-        document.getElementById('success-message').textContent = 'Registration successful! An email has been sent.';
-        document.getElementById('registrationForm').reset(); // Reset the form
-    }, function(error) {
-        console.log('FAILED...', error);
-        document.getElementById('success-message').textContent = 'Registration failed. Please try again.';
-    });
-    });
+            // Send the email using EmailJS
+            emailjs.send("service_5erkwmi", "template_9m9kuwe", {
+                name: name,
+                email: email,
+                telegram: telegram // Include Telegram nickname
+            })
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                document.getElementById('success-message').textContent = 'Registration successful! An email has been sent.';
+                document.getElementById('registrationForm').reset(); // Reset the form
+            }, function(error) {
+                console.log('FAILED...', error);
+                document.getElementById('success-message').textContent = 'Registration failed. Please try again.';
+            });
+        });
   </script>
  </body>
 
