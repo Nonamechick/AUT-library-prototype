@@ -26,11 +26,11 @@
      <form id="registrationForm">  
         <div class="form"> 
 
-         <div class="inputBox"> 
+         <!-- <div class="inputBox"> 
           <label for="username"></label>
           <input id="username" type="text" name="username" required> <i>Username</i> 
 
-         </div> 
+         </div>  -->
 
          <div class="inputBox"> 
           <label for="email"></label>  
@@ -74,13 +74,13 @@
         document.getElementById('registrationForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the default form submission
             
-            const name = document.getElementById('name').value;
+            // const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const telegram = document.getElementById('telegram').value;
 
             // Send the email using EmailJS
             emailjs.send("service_5erkwmi", "template_9m9kuwe", {
-                name: name,
+                // name: name,
                 email: email,
                 telegram: telegram // Include Telegram nickname
             })
