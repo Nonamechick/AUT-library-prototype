@@ -1,5 +1,9 @@
 #AUT-library-prototype
-University Electronic Library 📚
+
+AUT University Electronic Library 📚
+![screencapture-nonamechick-github-io-AUT-library-prototype-2025-01-22-00_20_22](https://github.com/user-attachments/assets/d5ba9681-ea4e-4267-ad46-704802dddabb)
+
+
 The University Electronic Library is a static website designed to provide easy access to a collection of academic resources for university students and faculty. This project focuses on simplicity and functionality, making it a reliable platform for hosting and organizing educational materials.
 
 Features
