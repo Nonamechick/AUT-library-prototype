@@ -219,7 +219,9 @@ h2 {
   align-items: center;
   padding: 1.5rem 1.5rem;
   z-index: 10;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
 
 .hamburger {
