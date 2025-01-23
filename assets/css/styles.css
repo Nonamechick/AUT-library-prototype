@@ -37,7 +37,7 @@ body, html {
 }
 
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /*url("../img/mon.jpg")*/;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   height: 60%;
   background-position: center;
   background-repeat: no-repeat;
@@ -62,6 +62,9 @@ body, html {
 }
 .page5 {
   background-image: url("../img/cave_sea.jpg");
+}
+.page6 {
+  background-image: url("../img/tree.jpg");
 }
 
 .hero-text {
