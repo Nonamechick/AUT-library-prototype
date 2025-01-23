@@ -42,6 +42,7 @@ body, html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: 1;
   position: relative;
 }
 .page {
@@ -217,6 +218,8 @@ h2 {
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 1.5rem;
+  z-index: 10;
+  position: relative;
 }
 
 .hamburger {
