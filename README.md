@@ -26,7 +26,7 @@ The AUT University Electronic Library Prototype was developed to serve as a cent
 
 We welcome contributions to enhance the functionality, design, and usability of this project. Whether you're a developer, designer, or educator, your input can help improve this platform for the benefit of the academic community.
 
-Feel free to explore, use, or contribute to the project! For more details, please refer to the [Contribution Guidelines](CONTRIBUTING.md).
+Feel free to explore, use, or contribute to the project! For more details, please refer to the [Contribution Guidelines](https://t.me/xasan123456).
 
 ---
 
