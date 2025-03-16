@@ -101,7 +101,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  z-index: 0; /* Lowered z-index to ensure it's below nav-menu */
+  z-index: 0;
   position: relative;
 }
 
@@ -155,12 +155,13 @@ footer { text-align: center; padding: 15px; background: var(--header-bg); font-s
       width: 100%; 
   }
   .dropdown-content { 
-      position: static; 
+      position: relative; /* Changed from static to relative */
       width: 100%; 
       border: none; 
       border-top: 1px solid var(--border-color); 
       border-radius: 0; 
       background: var(--header-bg);
+      z-index: 11; /* Explicitly set z-index to ensure it’s above hero-image */
   }
   .dropdown-content a { 
       padding: 15px; 
