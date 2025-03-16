@@ -160,9 +160,23 @@ footer { text-align: center; padding: 15px; background: var(--header-bg); font-s
       border: none; 
       border-top: 1px solid var(--border-color); 
       border-radius: 0; 
+      background: var(--header-bg); /* Ensure background matches header */
   }
-  .dropdown:hover .dropdown-content { display: none; }
-  .dropdown.active .dropdown-content { display: block; }
+  .dropdown-content a { 
+      padding: 15px; /* Increase padding for better touch target */
+      font-size: 1.1em; /* Slightly larger font for readability */
+      text-align: center; /* Center text for better alignment */
+  }
+  .dropdown-content a:hover { 
+      background: var(--hover-bg); 
+      color: var(--link-color); 
+  }
+  .dropdown:hover .dropdown-content { 
+      display: none; 
+  }
+  .dropdown.active .dropdown-content { 
+      display: block; 
+  }
   .hamburger.active .bar:nth-child(2) { opacity: 0; }
   .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
   .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
