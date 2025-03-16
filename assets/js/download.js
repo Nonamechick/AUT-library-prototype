@@ -16,9 +16,11 @@ if (localStorage.getItem('theme') === 'light') {
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const dropdown = document.querySelector('.dropdown');
+const majorsLink = document.querySelector('.dropdown .nav-link'); // Select the "Majors" link specifically
 
 if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
+        console.log('Hamburger clicked');
         navMenu.classList.toggle('active');
         hamburger.classList.toggle('active');
         // Close dropdown when hamburger is toggled
@@ -28,25 +30,28 @@ if (hamburger && navMenu) {
     });
 }
 
-// Dropdown Toggle for Mobile
-if (dropdown) {
-    dropdown.addEventListener('click', (e) => {
+// Dropdown Toggle for Mobile (only for "Majors" link)
+if (majorsLink) {
+    majorsLink.addEventListener('click', (e) => {
         if (window.innerWidth <= 600) {
-            // Only prevent default and toggle if the click is on the "Majors" link, not the dropdown items
-            if (e.target.classList.contains('nav-link')) {
-                e.preventDefault();
-                dropdown.classList.toggle('active');
-            }
+            console.log('Majors link clicked');
+            e.preventDefault(); // Prevent default only for the "Majors" link
+            dropdown.classList.toggle('active');
         }
     });
+}
 
-    // Handle navigation for dropdown links
-    const dropdownLinks = document.querySelectorAll('.dropdown-content a');
+// Handle navigation for dropdown links
+const dropdownLinks = document.querySelectorAll('.dropdown-content a');
+if (dropdownLinks.length > 0) {
     dropdownLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             if (window.innerWidth <= 600) {
+                console.log('Dropdown link clicked:', link.getAttribute('href'));
                 // Close dropdown and hamburger menu
-                dropdown.classList.remove('active');
+                if (dropdown) {
+                    dropdown.classList.remove('active');
+                }
                 if (navMenu) {
                     navMenu.classList.remove('active');
                 }
@@ -54,16 +59,25 @@ if (dropdown) {
                     hamburger.classList.remove('active');
                 }
                 // Navigate to the link's href
-                if (link.getAttribute('href') !== '#') {
-                    window.location.href = link.getAttribute('href');
+                const href = link.getAttribute('href');
+                if (href && href !== '#') {
+                    console.log('Navigating to:', href);
+                    setTimeout(() => {
+                        window.location.href = href; // Add slight delay to ensure UI updates
+                    }, 100);
+                } else {
+                    console.log('No valid href, skipping navigation');
                 }
             }
         });
     });
+}
 
-    // Close dropdown when clicking outside
+// Close dropdown when clicking outside
+if (dropdown) {
     document.addEventListener('click', (e) => {
         if (window.innerWidth <= 600 && !dropdown.contains(e.target)) {
+            console.log('Clicked outside dropdown');
             dropdown.classList.remove('active');
         }
     });
