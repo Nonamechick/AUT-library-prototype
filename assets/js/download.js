@@ -32,22 +32,30 @@ if (hamburger && navMenu) {
 if (dropdown) {
     dropdown.addEventListener('click', (e) => {
         if (window.innerWidth <= 600) {
-            e.preventDefault();
-            dropdown.classList.toggle('active');
+            // Only prevent default and toggle if the click is on the "Majors" link, not the dropdown items
+            if (e.target.classList.contains('nav-link')) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            }
         }
     });
 
-    // Close dropdown and hamburger menu when a dropdown link is clicked
+    // Handle navigation for dropdown links
     const dropdownLinks = document.querySelectorAll('.dropdown-content a');
     dropdownLinks.forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => {
             if (window.innerWidth <= 600) {
+                // Close dropdown and hamburger menu
                 dropdown.classList.remove('active');
                 if (navMenu) {
                     navMenu.classList.remove('active');
                 }
                 if (hamburger) {
                     hamburger.classList.remove('active');
+                }
+                // Navigate to the link's href
+                if (link.getAttribute('href') !== '#') {
+                    window.location.href = link.getAttribute('href');
                 }
             }
         });
