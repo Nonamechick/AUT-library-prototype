@@ -62,22 +62,30 @@
    */
   const themeToggleBtn = document.querySelector('.theme-toggle-btn');
   if (themeToggleBtn) {
-    // Toggle theme on click
+    console.log('Theme toggle button found:', themeToggleBtn); // Debug: Confirm button is found
     themeToggleBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      document.body.classList.toggle('dark-theme');
-      // Save the theme preference to localStorage
-      const isDarkTheme = document.body.classList.contains('dark-theme');
+      console.log('Theme toggle clicked'); // Debug: Confirm click event
+      const body = document.querySelector('body');
+      body.classList.toggle('dark-theme');
+      const isDarkTheme = body.classList.contains('dark-theme');
+      console.log('Theme switched to:', isDarkTheme ? 'dark' : 'light'); // Debug: Confirm theme switch
       localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+      console.log('Theme saved to localStorage:', localStorage.getItem('theme')); // Debug: Confirm storage
     });
 
     // Load saved theme on page load
-    const savedTheme = localStorage.getItem('theme');
+    const savedTheme = localStorage.getItem('theme') || 'light'; // Default to light if not set
+    console.log('Loading saved theme:', savedTheme); // Debug: Confirm loaded theme
     if (savedTheme === 'dark') {
       document.body.classList.add('dark-theme');
+      console.log('Applied dark theme'); // Debug: Confirm theme applied
     } else {
       document.body.classList.add('light-theme');
+      console.log('Applied light theme'); // Debug: Confirm theme applied
     }
+  } else {
+    console.log('Theme toggle button not found'); // Debug: Alert if button is missing
   }
 
   /**
