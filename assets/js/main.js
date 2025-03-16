@@ -1,10 +1,10 @@
 /**
-* Template Name: Regna
-* Template URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+ * Template Name: Regna
+ * Template URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
+ * Updated: Aug 07 2024 with Bootstrap v5.3.3
+ * Author: BootstrapMade.com
+ * License: https://bootstrapmade.com/license/
+ */
 
 (function() {
   "use strict";
@@ -43,7 +43,6 @@
         mobileNavToogle();
       }
     });
-
   });
 
   /**
@@ -57,6 +56,29 @@
       e.stopImmediatePropagation();
     });
   });
+
+  /**
+   * Theme Toggle
+   */
+  const themeToggleBtn = document.querySelector('.theme-toggle-btn');
+  if (themeToggleBtn) {
+    // Toggle theme on click
+    themeToggleBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.body.classList.toggle('dark-theme');
+      // Save the theme preference to localStorage
+      const isDarkTheme = document.body.classList.contains('dark-theme');
+      localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+    });
+
+    // Load saved theme on page load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.add('light-theme');
+    }
+  }
 
   /**
    * Preloader
@@ -144,7 +166,6 @@
         }
       }, false);
     });
-
   });
 
   /**
@@ -201,10 +222,9 @@
       } else {
         navmenulink.classList.remove('active');
       }
-    })
+    });
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
-

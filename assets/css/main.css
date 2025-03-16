@@ -1352,3 +1352,129 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+/* Define Theme Variables at the Root Level */
+:root {
+  /* Light Theme (Default) */
+  --background-color: #ffffff; /* Background for the entire website */
+  --default-color: #666666; /* Text color */
+  --heading-color: #333333; /* Headings */
+  --accent-color: #2dc997; /* Buttons, links */
+  --surface-color: #ffffff; /* Cards, boxes */
+  --contrast-color: #ffffff; /* Text on colored backgrounds */
+  --nav-color: #ffffff; /* Navmenu links */
+  --nav-hover-color: #ffffff; /* Navmenu links on hover */
+  --nav-mobile-background-color: #ffffff; /* Mobile nav background */
+  --nav-dropdown-background-color: #ffffff; /* Dropdown background */
+  --nav-dropdown-color: #666666; /* Dropdown links */
+  --nav-dropdown-hover-color: #2dc997; /* Dropdown links on hover */
+}
+
+/* Dark Theme (Inspired by X Messenger) */
+body.dark-theme {
+  --background-color: #1c2526; /* Dark gray background */
+  --default-color: #d9d9d9; /* Light gray text */
+  --heading-color: #ffffff; /* White headings */
+  --accent-color: #2dc997; /* Keep accent color for consistency */
+  --surface-color: #2f3336; /* Slightly lighter gray for cards */
+  --contrast-color: #ffffff; /* White text on colored backgrounds */
+  --nav-color: #d9d9d9; /* Light gray nav links */
+  --nav-hover-color: #ffffff; /* White on hover */
+  --nav-mobile-background-color: #2f3336; /* Darker mobile nav background */
+  --nav-dropdown-background-color: #2f3336; /* Darker dropdown background */
+  --nav-dropdown-color: #d9d9d9; /* Light gray dropdown links */
+  --nav-dropdown-hover-color: #2dc997; /* Accent color on hover */
+}
+
+/* Theme Toggle Button Styling */
+.navmenu .theme-toggle {
+  padding: 15px 14px;
+}
+
+.navmenu .theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px; /* Icon size */
+  color: var(--nav-color);
+  transition: color 0.3s;
+}
+
+.navmenu .theme-toggle-btn:hover {
+  color: var(--nav-hover-color);
+}
+
+/* Switch icon based on theme */
+body.light-theme .theme-toggle-btn i::before {
+  content: "\f4e6"; /* Bootstrap Icons: bi-sun */
+}
+
+body.dark-theme .theme-toggle-btn i::before {
+  content: "\f4bc"; /* Bootstrap Icons: bi-moon */
+}
+
+/* Mobile View */
+@media (max-width: 1199px) {
+  .navmenu .theme-toggle {
+    padding: 10px 20px;
+  }
+
+  .navmenu .theme-toggle-btn {
+    color: var(--nav-dropdown-color);
+    font-size: 17px;
+  }
+
+  .navmenu .theme-toggle-btn:hover {
+    color: var(--nav-dropdown-hover-color);
+  }
+}
+
+/* Update Existing Classes to Use Theme Variables */
+.light-background {
+  --background-color: #f9f9f9;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #2f3942;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #445360;
+  --contrast-color: #ffffff;
+}
+
+/* Ensure Footer Uses Theme Variables */
+.footer {
+  color: var(--default-color);
+  background-color: var(--background-color);
+}
+
+/* Update Hero Section Overlay for Dark Theme */
+.hero:before,
+.call-to-action:before {
+  background: color-mix(in srgb, var(--background-color), transparent 50%);
+}
+
+/* Ensure Service Items Look Good in Both Themes */
+.services .service-item {
+  background-color: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.services .service-item:hover {
+  background: var(--background-color);
+}
+
+/* Portfolio Content */
+.portfolio .portfolio-content {
+  background-color: var(--surface-color);
+}
+
+.portfolio .portfolio-content .portfolio-info {
+  background-color: var(--background-color);
+}
+
+/* Contact Section */
+.contact .info-item i {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+}
